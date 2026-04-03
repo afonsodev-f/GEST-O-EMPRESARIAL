@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing 3D Gestão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="logo1.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="logo2.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="logo3.png">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg0: '#0a0f1d',
+                        bg1: '#0b1220',
+                        bg2: '#101c33',
+                        panel: '#0f1a2b',
+                        glass: 'rgba(255,255,255,0.08)',
+                        edge: '#223149',
+                        primary: '#7aa2ff',
+                        primary2: '#3b82f6'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] },
+                    borderRadius: { card: '28px' },
+                    boxShadow: {
+                        panel: '0 0 0 1px rgba(34,49,73,.5), 0 18px 60px rgba(0,0,0,.45)',
+                        inner: 'inset 0 0 0 1px rgba(255,255,255,.06), inset 0 10px 30px rgba(255,255,255,.04)',
+                        glow: '0 0 40px rgba(122,162,255,.35), 0 10px 40px rgba(59,130,246,.25)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes float-fast {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .button-wrapper::before {
+            animation: spin-gradient 4s linear infinite;
+        }
+
+        @keyframes spin-gradient {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-white font-sans antialiased overflow-x-hidden relative bg-[#070b14]">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0  backdrop-blur-3xl flex items-center justify-center z-[9999]">
+        <div
+            class="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
+            <img height="30em" width="30em" class="animate-ping" src="logo1.png" alt="">
+        </div>
+
+    </div>
+
+
+    <!-- Fundo Tech -->
+    <div class="fixed inset-0 -z-50 overflow-hidden">
+
+        <!-- Gradiente base -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#070b14] via-[#0b1220] to-[#0a0f1d]"></div>
+
+        <!-- Linhas tech (grid) -->
+        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                                   linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+                   background-size: 40px 40px;">
+        </div>
+
+        <!-- Glow azul -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full">
+        </div>
+
+        <!-- Glow lateral -->
+        <div class="absolute bottom-0 right-0 w-[600px] h-[400px] bg-indigo-500/20 blur-[100px] rounded-full"></div>
+
+        <!-- Linha diagonal tech -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(120deg, transparent 48%, rgba(122,162,255,0.4) 50%, transparent 52%);
+                   background-size: 200% 200%;
+                   animation: moveLines 12s linear infinite;">
+        </div>
+
+    </div>
+
+    <!-- Header-->
+    <header class=' flex flex-col items-center  text-white relative overflow-hidden'>
+
+        <!-- Navbar -->
+        <nav id="navbar"
+            class="fixed top-0 left-0 w-full z-50 flex flex-col items-center px-4 transition-all duration-300 bg-transparent">
+            <div class="max-w-7xl mx-auto  flex items-center justify-between gap-8 p-4 md:px-16 lg:px-24 xl:px-32 md:py-4 w-full">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center ">
+                    <img src="4.png" alt="Provisagest Logo" class="w-40 object-contain" />
+                </a>
+                <div id="menu"
+                    class="fixed top-0 left-0 w-0 h-full bg-black/40 backdrop-blur-lg flex flex-col justify-center items-center gap-8 text-sm overflow-hidden transition-all duration-300 md:static md:w-auto md:flex-row md:bg-transparent md:h-auto">
+                    <a href="#home"
+                        class="menu-item text-gray-300 border-b-2 border-transparent border-white/80 rounded-b-md px-2 hover:text-white/80">Home</a>
+                    <a href="#sobre"
+                        class="menu-item text-gray-300 border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Sobre</a>
+                    <a href="#funcionalidades"
+                        class="menu-item text-gray-300 border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Funcionalidades</a>
+                    <a href="#modelos-oficiais"
+                        class="menu-item text-gray-300 border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Modelos</a>
+                    <a href="#pacotes"
+                        class="menu-item text-gray-300 border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Pacotes</a>
+                    <!-- Botão para abrir modal -->
+                    <a id="openModal" href="#contact"
+                        class="menu-item text-gray-300 border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">
+                        Contacto
+                    </a>
+
+
+
+                    <button id="close-menu"
+                        class="md:hidden bg-gray-900 hover:bg-gray-800 text-white p-2 rounded-md aspect-square font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+
+                </div>
+
+                <div class="lg:block hidden md:hidden sm:hidden">
+                    <div class="flex items-center gap-4">
+                        <a href="#contactos"
+                            class=" lg:flex px-5 md:px-7 py-2 md:py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-[12px] md:text-[13px] font-semibold items-center gap-2 whitespace-nowrap">
+                            <img src="login-alt.png"
+                                class="flex items-center justify-center w-4 h-4 object-contain text-white" />
+                            Fazer Login
+
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+                <button id="open-menu"
+                    class="md:hidden bg-gray-900 hover:bg-gray-800 text-gray-50 p-2 rounded-md aspect-square font-medium transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                        <path d="M4 6h16" />
+                    </svg>
+                </button>
+            </div>
+
+        </nav>
+
+
+
+        <!-- MODAL -->
+        <div id="modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden items-center justify-center z-50">
+
+            <!-- BOX -->
+            <div id="modalBox"
+                class="bg-white w-full max-w-md p-6 rounded-2xl shadow-xl transform scale-95 opacity-0 transition-all duration-300">
+
+                <!-- FECHAR -->
+                <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-black text-xl">
+                    ✕
+                </button>
+
+                <h2 class="text-2xl text-[#1b75b9] font-bold mb-4 text-center">Fale Connosco</h2>
+
+                <!-- FORM -->
+                <form class="space-y-4">
+
+                    <input type="text" placeholder="Nome"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+
+                    <input type="email" placeholder="Email"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+
+                    <textarea rows="4" placeholder="Mensagem"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                        required></textarea>
+
+                    <button type="submit"
+                        class="w-full bg-[#1b75b9] text-white py-3 rounded-xl hover:bg-blue-700 transition">
+                        Enviar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Hero -->
+        <div id="home"
+            class="flex flex-wrap items-center justify-center gap-2 pl-2.5 pr-4 py-1.5 mt-40 rounded-full bg-[#1b75b9] border border-white/15">
+            <div class="relative flex size-3.5 items-center justify-center">
+                <span
+                    class="absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75 animate-ping duration-300"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-yellow-600"></span>
+            </div>
+            <p class="text-sm">Gestão Empresarial Inteligente</p>
+        </div>
+
+        <h1 class="text-4xl  font-bold md:text-[64px]/16 text-center max-w-2xl mt-3 text-white leading-tight px-4">
+            PARE DE PERDER TEMPO. COMECE A ESCALAR O SEU NEGÓCIO HOJE.
+        </h1>
+        <p class="text-sm text-center font-light max-w-xl mt-5 px-6 text-white">
+            Assuma o controlo total da sua empresa com um sistema de gestão que elimina tarefas manuais, aumenta a
+            produtividade e maximiza os lucros.
+            Menos esforço, mais resultados — tudo numa única plataforma poderosa.
+        </p>
+
+        <div class='flex items-center flex-row gap-3 justify-center mt-10'>
+
+            <a href="#contactos" class="bg-[#1b75b9] flex justify-center items-center gap-2 
+              w-full sm:w-auto 
+              px-5 py-2 
+              md:px-7 md:py-2.5 
+              rounded-full 
+              bg-[#1b75b9] text-white 
+              border border-white/10 
+              transition-all 
+              text-xs md:text-sm 
+              font-semibold 
+              whitespace-nowrap">
+                <img src="adicionar-usuario.png"
+                    class="flex items-center justify-center w-4 h-4 object-contain text-white" />
+                Criar Conta
+
+            </a>
+
+            <a href="#" class="flex justify-center items-center gap-2 
+              w-full sm:w-auto 
+              px-5 py-2 
+              md:px-7 md:py-2.5 
+              rounded-full 
+               text-white 
+             bg-white/5 border border-white/10 hover:bg-white/10
+              transition-all 
+              text-xs md:text-sm 
+              font-semibold 
+              whitespace-nowrap">
+
+                Saber Mais
+
+                <img src="seta-para-a-direita.png" class="w-4 h-4 object-contain" />
+
+            </a>
+
+        </div>
+
+        <div class='flex items-center gap-2.5 px-6 mt-9'>
+            <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path fill="url(#a)" d="M0 0h21v22H0z" />
+                <defs>
+                    <pattern id="a" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#b" transform="matrix(.00348 0 0 .00332 -.01 0)" />
+                    </pattern>
+                    <image id="b" width="293" height="301" preserveAspectRatio="none"
+                        xlink:href="data:image/png;base64,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" />
+                </defs>
+            </svg>
+            <div class="flex" id="star-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-star text-transparent fill-[#FF8F20]" aria-hidden="true">
+                    <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-star text-transparent fill-[#FF8F20]" aria-hidden="true">
+                    <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-star text-transparent fill-[#FF8F20]" aria-hidden="true">
+                    <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-star text-transparent fill-[#FF8F20]" aria-hidden="true">
+                    <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-star text-transparent fill-[#FF8F20]" aria-hidden="true">
+                    <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                    </path>
+                </svg>
+            </div>
+            <div class='w-0.5 h-6 bg-white'></div>
+            <p class='text-sm'>Gerir o Seu Negócio Nunca Foi Tão Simples</p>
+        </div>
+
+        <div class=" w-full border-b border-zinc-800 mt-12">
+            <div
+                class=" absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+
+        <div
+            class=" absolute -top-[10px] left-0 right-0 -bottom-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32">
+            <div class="w-px bg-zinc-800"></div>
+            <div class="w-px bg-zinc-800"></div>
+        </div>
+
+        <div class="w-full px-4 md:px-16 lg:px-24 xl:px-32">
+            <div class="w-full  px-4 py-4 md:py-0 md:pt-8 flex justify-center items-center">
+                <img class="w-full max-w-7xl max-h-74 md:max-h-70 object-cover object-top"
+                    src="https://assets.prebuiltui.com/images/components/hero-section/hero-dashImage2.png"
+                    alt="Dashboard Preview" />
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+    <main id="inicio">
+
+        <div
+            class=" absolute top-[80px] left-0 right-0 -bottom-10 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32">
+            <div class="w-px bg-zinc-800"></div>
+            <div class="w-px bg-zinc-800"></div>
+        </div>
+
+
+        <!-- Sobre-->
+
+        <section id="sobre" class="py-16 animate-on-scroll">
+
+            <h1 class="text-3xl font-semibold text-center mx-auto mt-12">SOBRE O SISTEMA</h1>
+            <p class="text-sm text-white text-center mt-2 max-w-lg mx-auto">
+                Uma abordagem moderna para gestão
+            </p>
+
+            <p class="text-sm text-white text-center px-6 mt-2 max-w-lg mx-auto ">Somos uma solução de gestão
+                empresarial
+                que une
+                tecnologia, simplicidade e eficiência para ajudar empresas a crescer.</p>
+
+            <div class="max-w-7xl mx-auto flex flex-col items-center justify-center py-20 px-4">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+                    <!-- Card 1 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="01.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Gestão Financeira</h3>
+                            <p class="text-base text-zinc-100">Controle total das suas finanças com relatórios em tempo
+                                real e decisões mais seguras.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="02.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Relatórios Inteligentes</h3>
+                            <p class="text-base text-zinc-100">Visualize e analise seus dados de forma intuitiva e
+                                eficiente.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="03.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Gestão de Vendas</h3>
+                            <p class="text-base text-zinc-100">Acompanhe todo o processo de vendas de forma simples,
+                                rápida e organizada.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="04.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Acesso em Qualquer Lugar</h3>
+                            <p class="text-base text-zinc-100">Gerencie a sua empresa de onde estiver, a qualquer
+                                momento.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+        <div class=" w-full border-b border-zinc-600 mt-12">
+            <div
+                class="absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+        <div class="w-full border-b-0 md:border-b  border-b border-zinc-600 mt-12 ">
+            <div class="mx-auto max-w-5xl mt-2 mb-10  ">
+                <h1 class="text-3xl font-semibold text-center mx-auto mt-12">CONHEÇA O SISTEMA</h1>
+                <p class="text-sm text-white text-center mt-2 max-w-lg mx-auto">
+                    Uma abordagem moderna para gestão
+                </p>
+
+                <p class="text-sm text-white text-center px-6 mt-2 max-w-lg mx-auto ">Somos uma solução de gestão
+                    empresarial
+                    que une
+                    tecnologia, simplicidade e eficiência para ajudar empresas a crescer.</p>
+            </div>
+            <div
+                class=" absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+
+        <!-- Conheça o Sistema -->
+        <section id="sobre-video" class="py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+                <div class="relative rounded-2xl overflow-hidden ring-1 ring-black/5" data-animate="fade-up">
+                    <video id="meuVideo" class="w-full aspect-video cursor-pointer" controls preload="none">
+                        <source
+                            src="Mamu - Hospital do Amor Publicidade - Everest Filmes - Everest Filmes (1080p, h264).mp4"
+                            type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+        <!-- Funcionalidades -->
+        <section id="funcionalidades" class="py-20 px-4  flex flex-col justify-center items-center gap-6">
+
+            <button class='px-4 h-8 border border-gray-100 text-slate-200 text-xs rounded-lg'>Funcionalidades</button>
+            <h2 class="text-3xl md:text-[40px]/12 font-medium text-gray-100 max-w-lg text-center leading-tight"> GESTÃO
+                EMPRESARIAL COMPLETO</h2>
+            <p class='text-base/7 text-gray-200 px-6 max-w-xl text-center'>oferece todas as ferramentas necessárias para
+                organizar,
+                automatizar e otimizar as operações da sua empresa.
+
+            <div class="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg class='text-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-shield-check-icon lucide-shield-check">
+                        <path
+                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Multiutilizador e Segurança</p>
+                    <p class='text-sm/5 text-gray-200'>Defina permissões de acesso e proteja os dados da sua empresa com
+                        total segurança.</p>
+                </div>
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg class='text-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-history-icon lucide-history">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                        <path d="M12 7v5l4 2" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Relatórios e Análises</p>
+                    <p class='text-sm/5 text-gray-200'>Acesse dados estratégicos com gráficos e relatórios inteligentes
+                        para melhorar o desempenho da empresa.</p>
+                </div>
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 7.9999C20.9996 7.64918 20.9071 7.30471 20.7315 7.00106C20.556 6.69742 20.3037 6.44526 20 6.2699L13 2.2699C12.696 2.09437 12.3511 2.00195 12 2.00195C11.6489 2.00195 11.304 2.09437 11 2.2699L4 6.2699C3.69626 6.44526 3.44398 6.69742 3.26846 7.00106C3.09294 7.30471 3.00036 7.64918 3 7.9999V15.9999C3.00036 16.3506 3.09294 16.6951 3.26846 16.9987C3.44398 17.3024 3.69626 17.5545 4 17.7299L11 21.7299C11.304 21.9054 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9054 13 21.7299L20 17.7299C20.3037 17.5545 20.556 17.3024 20.7315 16.9987C20.9071 16.6951 20.9996 16.3506 21 15.9999V7.9999Z"
+                            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.29999 7L12 12L20.7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 22V12" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Gestão de Stock</p>
+                    <p class='text-sm/5 text-gray-200'>Monitore entradas e saídas de produtos, evitando perdas e
+                        garantindo controlo total do inventário.</p>
+                </div>
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg class='text-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-database-icon lucide-database">
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+                        <path d="M3 12A9 3 0 0 0 21 12" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Gestão Financeira</p>
+                    <p class='text-sm/5 text-gray-200'>Controle receitas, despesas, fluxo de caixa e relatórios
+                        financeiros em tempo real para uma tomada de decisão mais segura.</p>
+                </div>
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg class='text-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-users-icon lucide-users">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <circle cx="9" cy="7" r="4" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Gestão de Clientes</p>
+                    <p class='text-sm/5 text-gray-200'>Organize contactos, interações e oportunidades de negócio para
+                        fortalecer o relacionamento com os seus clientes.</p>
+                </div>
+                <div
+                    class='bg-linear-to-b from-[#020204] to-[#191130] border border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300'>
+                    <svg class='text-white' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-airplay-icon lucide-airplay">
+                        <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />
+                        <path d="m12 15 5 6H7Z" />
+                    </svg>
+                    <p class='font-medium text-lg text-gray-100'>Automação de Processos</p>
+                    <p class='text-sm/5 text-gray-200'>Reduza tarefas manuais e aumente a produtividade com fluxos
+                        automatizados.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call section-->
+        <div class=" py-24 sm:py-32 px-4 ">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 ">
+                <div
+                    class="relative isolate overflow-clip backdrop-blur-xl shadow-panel ring-1 ring-white/10 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+                    <div aria-hidden="true"
+                        class="absolute right-0 top-0 -z-10 aspect-square w-full max-w-3xl translate-x-3/4 rounded-full bg-[radial-gradient(circle_at_center,rgba(122,162,255,.35),transparent_60%)] blur-[10rem] lg:-top-[40rem] lg:left-1/2 lg:-translate-x-1/2">
+                    </div>
+                    <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-24 lg:text-start">
+                        <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Comece agora e leve sua
+                            empresa para o próximo nível...</h2>
+                        <p class="mt-6 text-base text-gray-300">Experimente grátis e transforme a gestão do seu negócio
+                        </p>
+                        <div class='mt-10 flex items-center justify-center gap-x-6 lg:justify-start'>
+
+                            <a href="#contactos" class="bg-[#1b75b9] flex justify-center items-center gap-2 
+                                          w-full sm:w-auto 
+                                          px-5 py-2 
+                                          md:px-7 md:py-2.5 
+                                          rounded-full 
+                                          bg-[#1b75b9] text-white 
+                                          border border-white/10 
+                                          transition-all 
+                                          text-xs md:text-sm 
+                                          font-semibold 
+                                          whitespace-nowrap">
+                                <img src="chamada-telefonica.png" class="flex items-center justify-center w-4 h-4 object-contain text-white" />
+                                Chama a equipa
+                            
+                            </a>
+                            
+                            <a href="#" class="flex justify-center items-center gap-2 
+                                          w-full sm:w-auto 
+                                          px-5 py-2 
+                                          md:px-7 md:py-2.5 
+                                          rounded-full 
+                                           text-white 
+                                         bg-white/5 border border-white/10 hover:bg-white/10
+                                          transition-all 
+                                          text-xs md:text-sm 
+                                          font-semibold 
+                                          whitespace-nowrap">
+                            
+                                Experimente Grátis
+                            
+                                <img src="seta-para-a-direita.png" class="w-4 h-4 object-contain" />
+                            
+                            </a>
+                        </div>
+
+
+                    </div>
+                    <div class="relative mt-16 h-80 lg:mt-8 lg:h-auto">
+                        <img width="1920" height="1139"
+                            class="absolute left-0 top-0 w-[58rem] max-w-none rounded-2xl bg-white/5 ring-1 ring-white/10 lg:top-14"
+                            src="https://htmlwind.com/assets/images/dark-dashboard-screenshot.webp"
+                            alt="dashboard screenshot" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full border-b border-zinc-600 mt-12">
+            <div
+                class="absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+        <!-- Modelos Oficiais-->
+        <section id="modelos-oficiais" class="py-16 animate-on-scroll">
+            <div class="w-[min(1200px,92%)] mx-auto">
+                <div class="mb-8 flex items-center justify-center">
+                    <div>
+                        <h2 class="text-2xl text-center md:text-3xl font-semibold">MODELOS OFICIAIS</h2>
+                        <p class="text-slate-300 px-6 text-center">Alguns projetos e estudos visuais recentes.</p>
+                    </div>
+
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Card Projeto 1 -->
+                    <article
+                        class="tilt-card group rounded-[28px] overflow-hidden border border-white/10  backdrop-blur-xl shadow-panel ring-1 ring-white/10">
+                        <div class="relative h-60">
+                            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop"
+                                alt="Projeto 1" class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent">
+                            </div>
+                            <div class="parallax absolute -right-6 -bottom-6 h-16 w-32 rounded-full bg-white/10 blur-md"
+                                data-depth="0.15"></div>
+                        </div>
+                        <div class="p-5 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-lg">Dashboard Financeiro</h3>
+                                <p class="text-slate-300 text-sm">ERP • Data viz</p>
+                            </div>
+                            <a
+                                class="grid place-items-center w-10 h-10 rounded-full bg-white/10 border border-white/10">→</a>
+                        </div>
+                    </article>
+                    <!-- Card Projeto 2 -->
+                    <article
+                        class="tilt-card group rounded-[28px] overflow-hidden border border-white/10 bg-white/15 backdrop-blur-xl shadow-panel ring-1 ring-white/10">
+                        <div class="relative h-60">
+                            <img src="6.jpg" alt="Projeto 2" class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent">
+                            </div>
+                            <div class="parallax absolute -left-6 -bottom-6 h-16 w-32 rounded-full bg-white/10 blur-md"
+                                data-depth="0.12"></div>
+                        </div>
+                        <div class="p-5 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-lg">Portal de Clientes</h3>
+                                <p class="text-slate-200 text-sm">CRM • UI 3D</p>
+                            </div>
+                            <a class="grid place-items-center w-10 h-10 rounded-full bg-white text-slate-900">↗</a>
+                        </div>
+                    </article>
+                    <!-- Card Projeto 3 -->
+                    <article
+                        class="tilt-card group rounded-[28px] overflow-hidden border border-white/10  backdrop-blur-xl shadow-panel ring-1 ring-white/10">
+                        <div class="relative h-60">
+                            <img src="5.jpg" alt="Projeto 3" class="w-full h-full object-cover">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent">
+                            </div>
+                            <div class="parallax absolute right-6 -top-6 h-12 w-24 rounded-full bg-white/10 blur-md"
+                                data-depth="0.2"></div>
+                        </div>
+                        <div class="p-5 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-lg">Mobile Analytics</h3>
+                                <p class="text-slate-300 text-sm">App • Charts</p>
+                            </div>
+                            <a
+                                class="grid place-items-center w-10 h-10 rounded-full bg-white/10 border border-white/10">→</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--Pacotes-->
+        <section id="pacotes" class="py-16 animate-on-scroll">
+
+            <div class="flex flex-col items-center py-16 px-4">
+                <h1 class="text-3xl md:text-4xl text-center mb-3 text-white">PLANOS FLEXÍVEIS DE PREÇOS</h1>
+                <p class="text-white text-center px-6 mb-8 text-sm">
+                    Não é necessário cartão de crédito. Atualize apenas quando precisar de mais recursos.
+                </p>
+
+                <div
+                    class="relative p-1 bg-white border border-gray-200 rounded-full inline-flex items-center mb-16 w-60">
+                    <div id="toggle-slider"
+                        class="absolute -z-10 w-[calc(50%-4px)] h-[53px] rounded-full bg-blue-700 transition-transform duration-300 ease-in-out pointer-events-none translate-x-0">
+                    </div>
+
+                    <button id="btn-monthly"
+                        class="relative z-10 flex-1 py-2.5 rounded-full text-sm font-medium text-center transition-colors duration-300 text-blue-700 cursor-pointer">
+                        Mensal
+                    </button>
+
+                    <button id="btn-yearly"
+                        class="relative z-10 flex-1 py-2.5 rounded-full text-sm font-medium text-center flex items-center justify-center gap-1 transition-colors duration-300 text-gray-500 hover:text-gray-900 cursor-pointer">
+                        Anual <span class='text-xs'>15% off</span>
+                    </button>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full items-end">
+                    <div>
+                        <div
+                            class="rounded-3xl p-6 bg-white border border-neutral-200 hover:shadow-lg transition-shadow">
+                            <h3 class="text-neutral-700 text-sm mb-6">Free</h3>
+                            <div class="flex items-baseline gap-1 mb-8"><span id="price-free"
+                                    class="text-[28px] text-neutral-900">$0</span><span
+                                    class="text-neutral-600 text-xs">/ month</span></div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Static sites only
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    1 website
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    500 MB SSD storage
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Free SSL Certificate
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Community support
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    No custom domain
+                                </li>
+                            </ul>
+                            <button
+                                class="w-full py-3 rounded-full cursor-pointer bg-[#1b75b9] text-white text-sm hover:opacity-95 transition-opacity">
+                                Contact us
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-blue-400 rounded-3xl p-2 shadow-xl hover:shadow-lg transition-shadow">
+                        <p class="text-center text-white text-sm py-1.5">Popular</p>
+                        <div class="rounded-3xl p-6 bg-white">
+                            <h3 class="text-neutral-700 text-sm mb-6">Pro plan</h3>
+                            <div class="flex items-baseline gap-1 mb-8"><span id="price-pro"
+                                    class="text-[28px] text-neutral-900">$19</span><span
+                                    class="text-neutral-600 text-xs">/ month</span></div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Static &amp; dynamic sites
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Unlimited websites
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    10 GB SSD storage
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Free SSL Certificate
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Free custom domain
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Email support
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Basic analytics
+                                </li>
+                            </ul>
+                            <button
+                                class="w-full py-3 rounded-full cursor-pointer bg-[#1b75b9] text-white text-sm hover:opacity-95 transition-opacity">
+                                Contact us
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            class="rounded-3xl p-6 bg-white border border-neutral-200 hover:shadow-lg transition-shadow">
+                            <h3 class="text-neutral-700 text-sm mb-6">Enterprise</h3>
+                            <div class="flex items-baseline gap-1 mb-8"><span id="price-enterprise"
+                                    class="text-[28px] text-neutral-900">$49</span><span
+                                    class="text-neutral-600 text-xs">/ month</span></div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Static &amp; dynamic sites
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Unlimited websites
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Unlimited SSD storage
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Free SSL Certificate
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Free custom domain
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-circle-check-icon lucide-circle-check">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                    Priority 24/7 support
+                                </li>
+                            </ul>
+                            <button
+                                class="w-full py-3 rounded-full cursor-pointer bg-[#1b75b9] text-white text-sm hover:opacity-95 transition-opacity">
+                                Contact us
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div class="w-full border-b border-zinc-600 mt-12">
+        <div
+            class="absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+            <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+        </div>
+    </div>
+    <!--Botão topo da página-->
+    <button id="toTop" class="group fixed bottom-6 right-6 bg-white/10 backdrop-blur-lg border border-white/20 
+      text-white p-3 rounded-full shadow-xl 
+      opacity-0 pointer-events-none transition-all duration-300 
+      hover:bg-blue-600 hover:scale-110">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+
+        </svg>
+
+    </button>
+    <!--Footer-->
+    <footer id="contact" class="pt-16 mb-8">
+        <div class="w-[min(1200px,92%)] mx-auto">
+            <div class="rounded-[28px]   p-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-0">
+                            <a href="#home" class="flex items-center ">
+                                <img src="4.png" alt="Provisagest Logo" class="w-40 object-contain" />
+                            </a>
+
+                        </div>
+                        <p class="text-slate-300 text-sm">Soluções modernas de gestão com visual 3D, automações e
+                            dashboards em tempo real.</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" aria-label="LinkedIn"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M6.94 6.5A1.44 1.44 0 1 1 5.5 5.06 1.45 1.45 0 0 1 6.94 6.5ZM7 8.75H4V20h3V8.75Zm6.5-.25a4.5 4.5 0 0 0-3.5 1.63V8.75H7V20h3v-6.1a2.5 2.5 0 0 1 5 0V20h3v-6.75A4.25 4.25 0 0 0 13.5 8.5Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5Zm0 8.2A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2ZM17.5 6A1.5 1.5 0 1 0 19 7.5 1.5 1.5 0 0 0 17.5 6Zm2.5 1.3A5.8 5.8 0 0 0 16.7 3H7.3A5.8 5.8 0 0 0 2 7.3v9.4A5.8 5.8 0 0 0 7.3 22h9.4A5.8 5.8 0 0 0 22 16.7V7.3ZM20 16.7A3.3 3.3 0 0 1 16.7 20H7.3A3.3 3.3 0 0 1 4 16.7V7.3A3.3 3.3 0 0 1 7.3 4h9.4A3.3 3.3 0 0 1 20 7.3Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M20.9 7.3c.01.16.01.33.01.5 0 5.1-3.9 11-11 11A10.9 10.9 0 0 1 3 17.7a7.7 7.7 0 0 0 5.6-1.6 3.8 3.8 0 0 1-3.6-2.7 3.8 3.8 0 0 0 1.7-.06A3.8 3.8 0 0 1 4 9.1v-.05a3.8 3.8 0 0 0 1.7.47A3.8 3.8 0 0 1 4.7 6a10.8 10.8 0 0 0 7.8 4 4.3 4.3 0 0 1-.09-.87 3.8 3.8 0 0 1 6.6-2.6 7.5 7.5 0 0 0 2.4-.92 3.8 3.8 0 0 1-1.7 2.1 7.6 7.6 0 0 0 2.2-.6 8 8 0 0 1-2 2Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Navegação</h4>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><a href="#sobre" class="hover:text-white">Sobre</a></li>
+                            <li><a href="#funcionalidades" class="menu-item hover:text-white/80">Funcionalidades</a>
+                            </li>
+                            <li><a href="#modelos-oficiais" class="menu-item hover:text-white/80">Modelos Oficiais</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Recursos</h4>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><a href="#" class="hover:text-white">Documentação</a></li>
+                            <li><a href="#" class="hover:text-white">Suporte</a></li>
+                            <li><a href="#" class="hover:text-white">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Contacto</h4>
+                        <p class="text-slate-300 text-sm">contacto@suaempresa.com</p>
+                        <p class="text-slate-300 text-sm">+244 900 000 000</p>
+                        <p class="text-slate-300 text-sm">Localização: Angola, Luanda Rua Joaquim Kapango, Kinaxixi</p>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-4 pt-6 border-t border-white/10 text-slate-300 flex flex-col md:flex-row items-center justify-between gap-3">
+
+                </div>
+            </div>
+            <div class="relative">
+                <div
+                    class="absolute inset-x-0 bottom-0 mx-auto w-full max-w-3xl h-full max-h-64  rounded-full blur-[100px] pointer-events-none">
+                </div>
+                <h1
+                    class=" text-center font-extrabold leading-[0.7] text-transparent text-[clamp(2rem,10vw,10rem)] [-webkit-text-stroke:1px_#1b75b9] mt-6">
+                    Provisagest
+                </h1>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
+
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            console.log("scroll"); // TESTE
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-black/40", "backdrop-blur-md");
+            } else {
+                navbar.classList.remove("bg-black/40", "backdrop-blur-md");
+            }
+        });
+
+
+        const btnMonthly = document.getElementById('btn-monthly');
+        const btnYearly = document.getElementById('btn-yearly');
+        const slider = document.getElementById('toggle-slider');
+        const priceFree = document.getElementById('price-free');
+        const pricePro = document.getElementById('price-pro');
+        const priceEnterprise = document.getElementById('price-enterprise');
+
+        let isYearly = false;
+
+        const prices = {
+            free: 0,
+            pro: 19,
+            enterprise: 49
+        };
+
+        function updatePricing() {
+            if (isYearly) {
+                // Yearly logic
+                slider.classList.remove('translate-x-0');
+                slider.classList.add('translate-x-full');
+
+                btnMonthly.classList.remove('text-[#FF5804]');
+                btnMonthly.classList.add('text-gray-500', 'hover:text-gray-900');
+
+                btnYearly.classList.remove('text-gray-500', 'hover:text-gray-900');
+                btnYearly.classList.add('text-[#FF5804]');
+
+                // Update prices
+                priceFree.textContent = `$${prices.free}`;
+                pricePro.textContent = `$${prices.pro - Math.round(prices.pro * 0.15)}`;
+                priceEnterprise.textContent = `$${prices.enterprise - Math.round(prices.enterprise * 0.15)}`;
+
+            } else {
+                // Monthly logic
+                slider.classList.remove('translate-x-full');
+                slider.classList.add('translate-x-0');
+
+                btnMonthly.classList.remove('text-gray-500', 'hover:text-gray-900');
+                btnMonthly.classList.add('text-[#FF5804]');
+
+                btnYearly.classList.remove('text-[#FF5804]');
+                btnYearly.classList.add('text-gray-500', 'hover:text-gray-900');
+
+                // Reset prices
+                priceFree.textContent = `$${prices.free}`;
+                pricePro.textContent = `$${prices.pro}`;
+                priceEnterprise.textContent = `$${prices.enterprise}`;
+            }
+        }
+
+        btnMonthly.addEventListener('click', () => {
+            isYearly = false;
+            updatePricing();
+        });
+
+        btnYearly.addEventListener('click', () => {
+            isYearly = true;
+            updatePricing();
+        });
+
+        // Initialize
+        updatePricing();
+
+
+        const start = Date.now();
+
+        window.addEventListener("load", () => {
+            const preloader = document.getElementById("preloader");
+
+            const minTime = 3500; // mínimo 3.5s
+            const elapsed = Date.now() - start;
+            const remaining = Math.max(0, minTime - elapsed);
+
+            setTimeout(() => {
+                preloader.style.opacity = "0";
+
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 500);
+
+            }, remaining);
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

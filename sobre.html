@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing 3D Gestão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="logo1.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="logo2.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="logo3.png">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg0: '#0a0f1d',
+                        bg1: '#0b1220',
+                        bg2: '#101c33',
+                        panel: '#0f1a2b',
+                        glass: 'rgba(255,255,255,0.08)',
+                        edge: '#223149',
+                        primary: '#7aa2ff',
+                        primary2: '#3b82f6'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] },
+                    borderRadius: { card: '28px' },
+                    boxShadow: {
+                        panel: '0 0 0 1px rgba(34,49,73,.5), 0 18px 60px rgba(0,0,0,.45)',
+                        inner: 'inset 0 0 0 1px rgba(255,255,255,.06), inset 0 10px 30px rgba(255,255,255,.04)',
+                        glow: '0 0 40px rgba(122,162,255,.35), 0 10px 40px rgba(59,130,246,.25)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes float-fast {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .button-wrapper::before {
+            animation: spin-gradient 4s linear infinite;
+        }
+
+        @keyframes spin-gradient {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-white font-sans antialiased overflow-x-hidden relative bg-[#070b14]">
+
+
+    <!-- Fundo Tech -->
+    <div class="fixed inset-0 -z-50 overflow-hidden">
+
+        <!-- Gradiente base -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#070b14] via-[#0b1220] to-[#0a0f1d]"></div>
+
+        <!-- Linhas tech (grid) -->
+        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                                   linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+                   background-size: 40px 40px;">
+        </div>
+
+        <!-- Glow azul -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full">
+        </div>
+
+        <!-- Glow lateral -->
+        <div class="absolute bottom-0 right-0 w-[600px] h-[400px] bg-indigo-500/20 blur-[100px] rounded-full"></div>
+
+        <!-- Linha diagonal tech -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(120deg, transparent 48%, rgba(122,162,255,0.4) 50%, transparent 52%);
+                   background-size: 200% 200%;
+                   animation: moveLines 12s linear infinite;">
+        </div>
+
+    </div>
+
+    <!-- Header-->
+    <header class='flex flex-col items-center  text-white relative overflow-hidden'>
+
+        <!-- Navbar -->
+        <nav id="navbar"
+            class="fixed top-0 left-0 w-full z-50 flex flex-col items-center px-4 transition-all duration-300 bg-transparent">
+            <div class="flex items-center justify-between p-4 md:px-16 lg:px-24 xl:px-32 md:py-4 w-full">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center ">
+                    <img src="4.png" alt="Provisagest Logo" class="w-40 object-contain" />
+
+
+                </a>
+                <div id="menu"
+                    class="fixed top-0 left-0 w-0 h-full bg-black/40 backdrop-blur-lg flex flex-col justify-center items-center gap-8 text-sm overflow-hidden transition-all duration-300 md:static md:w-auto md:flex-row md:bg-transparent md:h-auto">
+                    <a href="#home"
+                        class="menu-item border-b-2 border-transparent border-white/80 rounded-b-md px-2 hover:text-white/80">Home</a>
+                    <a href="#sobre"
+                        class="menu-item border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Sobre</a>
+                    <a href="#funcionalidades"
+                        class="menu-item border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Funcionalidades</a>
+                    <a href="#modelos-oficiais"
+                        class="menu-item border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Modelos
+                        Oficiais</a>
+                    <a href="#pacotes"
+                        class="menu-item border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">Pacotes</a>
+                    <!-- Botão para abrir modal -->
+                    <a href="#contact"
+                        class="menu-item border-b-2 border-transparent hover:border-white/80 rounded-b-md px-2 hover:text-white/80">
+                        Contacto
+                    </a>
+
+
+
+                    <button id="close-menu"
+                        class="md:hidden bg-gray-900 hover:bg-gray-800 text-white p-2 rounded-md aspect-square font-medium transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+
+                </div>
+
+                <div class="lg:block hidden md:hidden sm:hidden">
+                    <div class="flex items-center gap-4">
+                        <button
+                            class=" relative rounded-md bg-[#1b75b9] px-4 py-2  font-mono text-white transition-colors duration-300 ease-linear before:absolute before:right-1/2 before:top-1/2 before:-z-[1] before:h-3/4 before:w-1/2 before:origin-bottom-left before:-translate-y-1/2 before:translate-x-1/2 before:animate-ping before:rounded-md before:bg-blue-500 hover:bg-blue-700 hover:before:bg-blue-400">
+                            Login
+                        </button>
+
+                        <button
+                            class="flex items-center gap-1 relative rounded-md border border-white  px-4 py-2 font-mono font-medium text-white transition-colors duration-300 ease-linear before:absolute before:right-1/2 before:top-1/2 before:-z-[1] before:h-3/4 before:w-2/3 before:origin-bottom-left before:-translate-y-1/2 before:translate-x-1/2  before:rounded-full  hover:bg-blue-700 ">
+                            <img src="adicionar-usuario.png"
+                                class="flex items-center justify-center w-4 h-4 object-contain text-white" />
+                            <span class="text-sm">Criar Conta</span>
+
+
+                        </button>
+                    </div>
+
+                </div>
+
+                <button id="open-menu"
+                    class="md:hidden bg-gray-900 hover:bg-gray-800 text-gray-50 p-2 rounded-md aspect-square font-medium transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12h16" />
+                        <path d="M4 18h16" />
+                        <path d="M4 6h16" />
+                    </svg>
+                </button>
+            </div>
+
+        </nav>
+
+        <!-- Hero -->
+
+      
+        <div class="relative mx-auto max-w-5xl mt-40 px-4">
+            <div
+                class="absolute -z-50 size-[400px] -top-10 -left-20 aspect-square rounded-full  blur-3xl">
+            </div>
+            <p class="text-slate-100 text-lg text-left max-w-3xl">Gerencie tudo. Cresça mais rápido
+                Tudo o que a sua empresa precisa, numa única plataforma simples e poderosa.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 mt-8 gap-10">
+                <div class="md:col-span-2">
+                    <img alt="features showcase"
+                        src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-4.png">
+                </div>
+                <div class="md:col-span-1">
+                    <img alt="features showcase" class="hover:-translate-y-0.5 transition duration-300"
+                        src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-3.png">
+                    <p class="text-slate-100 mt-2">
+                        Uma plataforma completa de gestão empresarial que centraliza finanças, vendas, clientes e operações num só
+                        lugar.
+                         Automatize processos, reduza erros e tome decisões com dados em tempo real.
+                        Simples, rápida e preparada para impulsionar o crescimento do seu negócio.
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+
+     
+
+       
+
+       
+
+        <div class=" w-full border-b border-zinc-800 mt-12">
+            <div
+                class=" absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+
+        <div
+            class=" absolute -top-[10px] left-0 right-0 -bottom-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32">
+            <div class="w-px bg-zinc-800"></div>
+            <div class="w-px bg-zinc-800"></div>
+        </div>
+
+
+    </header>
+
+
+    <!-- Main -->
+    <main id="inicio">
+
+        <div
+            class=" absolute top-[80px] left-0 right-0 -bottom-10 pointer-events-none flex justify-between px-4  md:px-16 lg:px-24 xl:px-32">
+            <div class="w-px bg-zinc-800"></div>
+            <div class="w-px bg-zinc-800"></div>
+        </div>
+
+
+        <section class="mt-20">
+            <h1 class="text-3xl font-semibold text-center mx-auto">sistema de gestão empresarial </h1>
+            <p class="text-sm text-slate-100 text-center mt-2 max-w-lg mx-auto">O nosso sistema de gestão empresarial
+                foi desenvolvido para oferecer uma solução completa, moderna e eficiente para empresas que procuram
+                organização, controlo e crescimento sustentável.</p>
+
+            <div class="flex items-center gap-6 h-[400px] w-full max-w-5xl mt-10 mx-auto">
+                <div class="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full">
+                    <img class="h-full w-full rounded-lg object-cover object-center" src="4.jpg" alt="image">
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <h1 class="text-3xl">gestão empresarial</h1>
+                        <p class="text-sm">Mais do que uma ferramenta, é uma plataforma estratégica que centraliza todas
+                            as operações do seu negócio num único ambiente digital.</p>
+
+                    </div>
+                </div>
+                <div class="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full">
+                    <img class="h-full w-full rounded-lg object-cover object-right" src="5.jpg" alt="image">
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <h1 class="text-3xl">Gestão Empresarial Inteligente</h1>
+                        <p class="text-sm">O sistema permite gerir áreas essenciais como finanças, vendas, clientes e
+                            stock de forma integrada e automatizada.</p>
+
+                    </div>
+                </div>
+                <div class="relative group flex-grow transition-all w-56 h-[400px] duration-500 hover:w-full">
+                    <img class="h-full w-full rounded-lg object-cover object-center" src="6.jpg" alt="image">
+                    <div
+                        class="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <h1 class="text-3xl">Decisões rápidas e assertivas.</h1>
+                        <p class="text-sm">O sistema oferece flexibilidade e escalabilidade, acompanhando o crescimento
+                            do seu negócio.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre-->
+
+        <section id="sobre" class="py-16 ">
+
+
+            <p class="text-sm text-white text-center mt-2 max-w-lg mx-auto">
+                Uma abordagem moderna para gestão
+            </p>
+
+            <p class="text-sm text-white text-center px-6 mt-2 max-w-lg mx-auto ">Somos uma solução de gestão
+                empresarial
+                que une
+                tecnologia, simplicidade e eficiência para ajudar empresas a crescer.</p>
+
+            <div class="max-w-7xl mx-auto flex flex-col items-center justify-center py-20 px-4">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+                    <!-- Card 1 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="01.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Gestão Financeira</h3>
+                            <p class="text-base text-zinc-100">Controle total das suas finanças com relatórios em tempo
+                                real e decisões mais seguras.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="02.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Relatórios Inteligentes</h3>
+                            <p class="text-base text-zinc-100">Visualize e analise seus dados de forma intuitiva e
+                                eficiente.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="03.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Gestão de Vendas</h3>
+                            <p class="text-base text-zinc-100">Acompanhe todo o processo de vendas de forma simples,
+                                rápida e organizada.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        class="flex items-center p-2 border border-gray-600 hover:border-gray-300 transition-colors rounded-xl w-sm lg:w-[500px] sm:w-[420px]">
+                        <img src="04.jpg" alt="House" class="w-full max-w-[118px] rounded-lg object-cover" />
+                        <div class="ml-4">
+                            <h3 class="text-lg text-zinc-100">Acesso em Qualquer Lugar</h3>
+                            <p class="text-base text-zinc-100">Gerencie a sua empresa de onde estiver, a qualquer
+                                momento.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+        <div class=" w-full border-b border-zinc-600 mt-12">
+            <div
+                class="absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+
+
+        <!-- Conheça o Sistema -->
+        <section id="sobre-video" class="py-16">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+                <div class="relative rounded-2xl overflow-hidden ring-1 ring-black/5" data-animate="fade-up">
+                    <video id="meuVideo" class="w-full aspect-video cursor-pointer" controls preload="none">
+                        <source
+                            src="Mamu - Hospital do Amor Publicidade - Everest Filmes - Everest Filmes (1080p, h264).mp4"
+                            type="video/mp4">
+                        Seu navegador não suporta vídeo.
+                    </video>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <div class="w-full border-b border-zinc-600 mt-12">
+            <div
+                class="absolute left-0 right-0 pointer-events-none flex justify-between px-4 md:px-16 lg:px-24 xl:px-32 -mt-1.5 -mr-1 -ml-1">
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+                <div class="w-2.5 h-2.5 bg-white rotate-45"></div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+    <!--Footer-->
+    <footer id="contact" class="pt-16 mb-8">
+        <div class="w-[min(1200px,92%)] mx-auto">
+            <div class="rounded-[28px]   p-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-0">
+                            <a href="#home" class="flex items-center ">
+                                <img src="logo1.png" alt="Provisagest Logo" class="w-12 h-12 object-contain" />
+                                <span class="text-2xl font-bold">Provigest</span>
+
+                            </a>
+
+                        </div>
+                        <p class="text-slate-300 text-sm">Soluções modernas de gestão com visual 3D, automações e
+                            dashboards em tempo real.</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#" aria-label="LinkedIn"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M6.94 6.5A1.44 1.44 0 1 1 5.5 5.06 1.45 1.45 0 0 1 6.94 6.5ZM7 8.75H4V20h3V8.75Zm6.5-.25a4.5 4.5 0 0 0-3.5 1.63V8.75H7V20h3v-6.1a2.5 2.5 0 0 1 5 0V20h3v-6.75A4.25 4.25 0 0 0 13.5 8.5Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5Zm0 8.2A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2ZM17.5 6A1.5 1.5 0 1 0 19 7.5 1.5 1.5 0 0 0 17.5 6Zm2.5 1.3A5.8 5.8 0 0 0 16.7 3H7.3A5.8 5.8 0 0 0 2 7.3v9.4A5.8 5.8 0 0 0 7.3 22h9.4A5.8 5.8 0 0 0 22 16.7V7.3ZM20 16.7A3.3 3.3 0 0 1 16.7 20H7.3A3.3 3.3 0 0 1 4 16.7V7.3A3.3 3.3 0 0 1 7.3 4h9.4A3.3 3.3 0 0 1 20 7.3Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="grid place-items-center w-9 h-9 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M20.9 7.3c.01.16.01.33.01.5 0 5.1-3.9 11-11 11A10.9 10.9 0 0 1 3 17.7a7.7 7.7 0 0 0 5.6-1.6 3.8 3.8 0 0 1-3.6-2.7 3.8 3.8 0 0 0 1.7-.06A3.8 3.8 0 0 1 4 9.1v-.05a3.8 3.8 0 0 0 1.7.47A3.8 3.8 0 0 1 4.7 6a10.8 10.8 0 0 0 7.8 4 4.3 4.3 0 0 1-.09-.87 3.8 3.8 0 0 1 6.6-2.6 7.5 7.5 0 0 0 2.4-.92 3.8 3.8 0 0 1-1.7 2.1 7.6 7.6 0 0 0 2.2-.6 8 8 0 0 1-2 2Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Navegação</h4>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><a href="#sobre" class="hover:text-white">Sobre</a></li>
+                            <li><a href="#funcionalidades" class="menu-item hover:text-white/80">Funcionalidades</a>
+                            </li>
+                            <li><a href="#modelos-oficiais" class="menu-item hover:text-white/80">Modelos Oficiais</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Recursos</h4>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><a href="#" class="hover:text-white">Documentação</a></li>
+                            <li><a href="#" class="hover:text-white">Suporte</a></li>
+                            <li><a href="#" class="hover:text-white">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Contacto</h4>
+                        <p class="text-slate-300 text-sm">contacto@suaempresa.com</p>
+                        <p class="text-slate-300 text-sm">+244 900 000 000</p>
+                        <p class="text-slate-300 text-sm">Localização: Angola, Luanda Rua Joaquim Kapango, Kinaxixi</p>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-4 pt-6 border-t border-white/10 text-slate-300 flex flex-col md:flex-row items-center justify-between gap-3">
+
+                </div>
+            </div>
+            <div class="relative">
+                <div
+                    class="absolute inset-x-0 bottom-0 mx-auto w-full max-w-3xl h-full max-h-64  rounded-full blur-[100px] pointer-events-none">
+                </div>
+                <h1
+                    class=" text-center font-extrabold leading-[0.7] text-transparent text-[clamp(2rem,10vw,10rem)] [-webkit-text-stroke:1px_#1b75b9] mt-6">
+                    Provisagest
+                </h1>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            console.log("scroll"); // TESTE
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-black/40", "backdrop-blur-md");
+            } else {
+                navbar.classList.remove("bg-black/40", "backdrop-blur-md");
+            }
+        });
+
+
+        const btnMonthly = document.getElementById('btn-monthly');
+        const btnYearly = document.getElementById('btn-yearly');
+        const slider = document.getElementById('toggle-slider');
+        const priceFree = document.getElementById('price-free');
+        const pricePro = document.getElementById('price-pro');
+        const priceEnterprise = document.getElementById('price-enterprise');
+
+        let isYearly = false;
+
+        const prices = {
+            free: 0,
+            pro: 19,
+            enterprise: 49
+        };
+
+        function updatePricing() {
+            if (isYearly) {
+                // Yearly logic
+                slider.classList.remove('translate-x-0');
+                slider.classList.add('translate-x-full');
+
+                btnMonthly.classList.remove('text-[#FF5804]');
+                btnMonthly.classList.add('text-gray-500', 'hover:text-gray-900');
+
+                btnYearly.classList.remove('text-gray-500', 'hover:text-gray-900');
+                btnYearly.classList.add('text-[#FF5804]');
+
+                // Update prices
+                priceFree.textContent = `$${prices.free}`;
+                pricePro.textContent = `$${prices.pro - Math.round(prices.pro * 0.15)}`;
+                priceEnterprise.textContent = `$${prices.enterprise - Math.round(prices.enterprise * 0.15)}`;
+
+            } else {
+                // Monthly logic
+                slider.classList.remove('translate-x-full');
+                slider.classList.add('translate-x-0');
+
+                btnMonthly.classList.remove('text-gray-500', 'hover:text-gray-900');
+                btnMonthly.classList.add('text-[#FF5804]');
+
+                btnYearly.classList.remove('text-[#FF5804]');
+                btnYearly.classList.add('text-gray-500', 'hover:text-gray-900');
+
+                // Reset prices
+                priceFree.textContent = `$${prices.free}`;
+                pricePro.textContent = `$${prices.pro}`;
+                priceEnterprise.textContent = `$${prices.enterprise}`;
+            }
+        }
+
+        btnMonthly.addEventListener('click', () => {
+            isYearly = false;
+            updatePricing();
+        });
+
+        btnYearly.addEventListener('click', () => {
+            isYearly = true;
+            updatePricing();
+        });
+
+        // Initialize
+        updatePricing();
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
